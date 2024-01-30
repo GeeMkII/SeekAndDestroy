@@ -1,42 +1,58 @@
-﻿<h1>Create Plate </h1>
-<hr/>
+﻿@model SAD.Domain.Entities.Warehause
 
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Plate</h1>
+
+<h4>Warehause</h4>
+<hr />
 <div class="row">
-    .<div class="col-md-4">
-        <form action="/Warehause/Create" method="post">
-            <div class="form-group  mb-3">
-                <label class="control-label" for="Hardnes">Hardness</label>
-                <input class="form-control" type="text" id="Hardnes" name-"Hardnes">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+            <div class="form-group">
+                <label asp-for="Hardnes" class="control-label">Hardness</label>
+                <input asp-for="Hardnes" class="form-control" />
+                <span asp-validation-for="Hardnes" class="text-danger"></span>
             </div>
-            <div class="form-group  mb-3">
-                <label class="control-label" for="Width">Width</label>
-                <input class="form-control" type="text" id="Width" name-"Width">
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
             </div>
-            <div class="form-group  mb-3">
-                <label class="control-label" for="Height">Height</label>
-                <input class="form-control" type="text" id="Height" name-"Height">
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
             </div>
-
-            <div class="form-group mb-3">
-                <label class="control-label" for="Thicness">Thicness</label>
-                <input class="form-control" type="text" id="Thicness" name-"Thicness">
+            <div class="form-group">
+                <label asp-for="Thicness" class="control-label"></label>
+                <input asp-for="Thicness" class="form-control" />
+                <span asp-validation-for="Thicness" class="text-danger"></span>
             </div>
-      
-            <div class="form-group mb-3">
-                <label class="control-label" for="Description">Description</label>
-                <input class="form-control" type="text" id="Description" name-"Description">
+           
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-
-            <div class="form-group mb-3">
-                <label class="control-label" for="Name">Name</label>
-                <input class="form-control" type="text" id="Name" name-"PalletRack.Name">
+            <div class="form-group">
+                <label asp-for="PalletRack.Name" class="control-label">PalletRack</label>
+                <input asp-for="PalletRack.Name" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-
-            <div class="from-group mb-3">
+         
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
-
-
 </div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
