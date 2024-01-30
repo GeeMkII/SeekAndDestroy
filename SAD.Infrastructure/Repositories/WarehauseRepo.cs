@@ -6,9 +6,9 @@ namespace SAD.Infrastructure.Repositories
     internal class WarehauseRepo : IWarehauseRepo
     {
         private readonly SaDDbContext _dbContext;
-        public WarehauseRepo(SaDDbContext dDbContext)
+        public WarehauseRepo(SaDDbContext dbContext)
         {
-            _dbContext = dDbContext;
+            _dbContext = dbContext;
         }
         public async Task Create(Domain.Entities.Warehause warehause)
         {
