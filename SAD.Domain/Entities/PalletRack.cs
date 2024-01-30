@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SAD.Domain.Entities
 {
-    internal class ContactDetails
+    public class PalletRack
     {
+        public string Name { get; set; } = default!;
     }
 }

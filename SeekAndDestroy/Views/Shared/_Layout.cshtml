@@ -1,5 +1,7 @@
-﻿@{
-    var currentUrl = ViewContext.RouteData.Values["Action"].ToString();
+﻿
+
+@{
+    var currentUrl = ViewContext.RouteData.Values["Action"]!.ToString();
 }
 
 <!DOCTYPE html>
