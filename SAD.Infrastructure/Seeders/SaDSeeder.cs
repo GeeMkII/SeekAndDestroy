@@ -31,6 +31,7 @@ namespace SAD.Infrastructure.Seeders
                         Height = 4000,
                         Thicness = 8,
                         PalletRack = new()
+
                         {
                             Name ="Namiot",
                             Position = "p1"

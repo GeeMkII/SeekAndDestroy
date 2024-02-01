@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SAD.App.Warehause
 {//AbstractVal - parametr generyczny przyjmuje typ do walidacji
-    public class WarhauseDtoVaildator : AbstractValidator<WarehauseDto>
+    public class WarehauseDtoVaildator : AbstractValidator<WarehauseDto>
     {
-        public WarhauseDtoVaildator(IWarehauseRepo repo)
+        public WarehauseDtoVaildator(IWarehauseRepo repo)
         {
             RuleFor(c => c.Hardnes)
                 .NotEmpty()

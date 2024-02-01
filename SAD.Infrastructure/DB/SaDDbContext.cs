@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace SAD.Infrastructure.DB
 {
@@ -11,7 +8,16 @@ namespace SAD.Infrastructure.DB
     {
         public SaDDbContext(DbContextOptions<SaDDbContext> options) :  base(options) 
         {
-            
+            var firstDbTablesCreate = Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
+            if (!firstDbTablesCreate.CanConnect())
+            {
+                firstDbTablesCreate.Create();
+            }
+
+            if (!firstDbTablesCreate.HasTables())
+            {
+                firstDbTablesCreate.CreateTables();
+            }
         }
         public DbSet<SAD.Domain.Entities.Warehause> Warehauses { get; set;}
         /// <summary>
@@ -20,7 +26,7 @@ namespace SAD.Infrastructure.DB
         /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=WarehauseDb;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionDB"));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

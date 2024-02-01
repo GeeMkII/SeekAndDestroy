@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  sqlDB:
+    container_name: WuhanDB
+    networks:
+        - myNet
+    ports:
+      - 4555:1433
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    volumes:
+        - BackUpSql:/var/opt/mssql
+    environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=q1W@e3r4t5
+  seekanddestroy:
+        container_name: WuhanSaD
+        networks: 
+            - myNet
+        image: ${DOCKER_REGISTRY-}seekanddestroy
+        ports:
+                - 4567:80
+                - 4568:443
+        environment:
+            - ConnectionDB=Server=WuhanDB; Database=SaDDB; User Id=sa; Password=q1W@e3r4t5; Trust Server Certificate=True;
+
+
+        build:
+          context: .
+          dockerfile: SeekAndDestroy/Dockerfile
+networks:
+  myNet:
+volumes:
+    BackUpSql:
+
+
+  

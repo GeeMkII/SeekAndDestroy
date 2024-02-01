@@ -11,17 +11,22 @@ namespace SeekAndDestroy.Controllers
         {
             _warehauseService = warehauseService;
         }
-
+        public async Task<IActionResult> IndexWarehause()
+        {
+            var warehauses = await _warehauseService.GetAll();
+            return View(warehauses);
+        }
         public IActionResult Create()
         {
             return View();
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Create([FromForm]SAD.Domain.Entities.Warehause warehause)
         {
            await _warehauseService.Create(warehause);
-            return RedirectToAction(nameof(Create)); //tymczasowo Create
+            return RedirectToAction(nameof(IndexWarehause)); //tymczasowo Create
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using SAD.Domain.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SAD.Domain.Entities;
+using SAD.Domain.Interfaces;
 using SAD.Infrastructure.DB;
 
 namespace SAD.Infrastructure.Repositories
@@ -14,6 +16,15 @@ namespace SAD.Infrastructure.Repositories
         {
             _dbContext.Add(warehause);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Warehause>> GetAll()        
+            => await _dbContext.Warehauses.ToListAsync();
+        
+
+        public Task<Warehause?> GetBySeo(string seo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

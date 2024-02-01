@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Extensions.DependencyInjection;
+using SAD.App.Mappings;
 using SAD.App.Services;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace SAD.App.Eztensions
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IWarehauseService, WarehauseService>();
+            services.AddAutoMapper(typeof(WarehauseMappingProfile));
         }
     }
 }
