@@ -5,8 +5,6 @@ services:
     container_name: WuhanDB
     networks:
         - myNet
-    ports:
-      - 4555:1433
     image: mcr.microsoft.com/mssql/server:2022-latest
     volumes:
         - BackUpSql:/var/opt/mssql
@@ -18,8 +16,7 @@ services:
         networks: 
             - myNet
         image: ${DOCKER_REGISTRY-}seekanddestroy
-        ports:
-                - 4567:80
+        ports:                
                 - 4568:443
         environment:
             - ConnectionDB=Server=WuhanDB; Database=SaDDB; User Id=sa; Password=q1W@e3r4t5; Trust Server Certificate=True;

@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using SAD.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SAD.App.Warehause
 {//AbstractVal - parametr generyczny przyjmuje typ do walidacji
