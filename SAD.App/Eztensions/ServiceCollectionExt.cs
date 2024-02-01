@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace SAD.App.Eztensions
 {//Dodanie zależnosci
-    public static class SeviceCollectionExt
+    public static class ServiceCollectionExt
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IWarehauseService, WarehauseService>();
-            services.AddAutoMapper(typeof(WarehauseMappingProfile));
+            services.AddScoped<IWarehouseService, WarehouseService>();
+            services.AddAutoMapper(typeof(WarehouseMappingProfile));
         }
     }
 }

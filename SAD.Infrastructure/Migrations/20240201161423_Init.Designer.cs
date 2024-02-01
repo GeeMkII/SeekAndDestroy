@@ -25,7 +25,7 @@ namespace SAD.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SAD.Domain.Entities.Warehause", b =>
+            modelBuilder.Entity("SAD.Domain.Entities.Warehouse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,7 +50,7 @@ namespace SAD.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Thicness")
+                    b.Property<int>("Thickness")
                         .HasColumnType("int");
 
                     b.Property<int>("Width")
@@ -61,7 +61,7 @@ namespace SAD.Infrastructure.Migrations
                     b.ToTable("Warehauses");
                 });
 
-            modelBuilder.Entity("SAD.Domain.Entities.Warehause", b =>
+            modelBuilder.Entity("SAD.Domain.Entities.Warehouse", b =>
                 {
                     b.OwnsOne("SAD.Domain.Entities.PalletRack", "PalletRack", b1 =>
                         {

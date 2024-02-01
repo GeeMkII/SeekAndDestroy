@@ -3,11 +3,11 @@ using SAD.App.Services;
 
 namespace SeekAndDestroy.Controllers
 {
-    public class WarehauseController : Controller
+    public class WarehouseController : Controller
     {
-        private readonly IWarehauseService _warehauseService;
+        private readonly IWarehouseService _warehauseService;
 
-        public WarehauseController(IWarehauseService warehauseService)
+        public WarehouseController(IWarehouseService warehauseService)
         {
             _warehauseService = warehauseService;
         }
@@ -23,10 +23,10 @@ namespace SeekAndDestroy.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm]SAD.Domain.Entities.Warehause warehause)
+        public async Task<IActionResult> Create([FromForm]SAD.Domain.Entities.Warehouse warehause)
         {
            await _warehauseService.Create(warehause);
-            return RedirectToAction(nameof(IndexWarehause)); //tymczasowo Create
+            return RedirectToAction(nameof(IndexWarehause)); //powrót do widoku
         }
     }
 }

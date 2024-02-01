@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SAD.App.Warehouse.WarehouseDto>
+
+@{
+    ViewData["Title"] = "IndexWarehouse";
+}
+
+<h1>Plates</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Create New</a>
+</p>
+<div>
+    @foreach(var item in Model)
+    {
+        <div class="card m-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@item.Hardness</h5>
+                <h5 class="card-title">@item.Thickness</h5>
+                <h5 class="card-title">@item.Width</h5>
+                <h5 class="card-title">@item.Height</h5>
+                
+                <h6 class="card-subtitle mb-2 text-muted">@item.Hardness</h6>
+                <p class="card-text">@item.Description</p>
+                <p class="card-text">@item.PalletRackName</p>
+                <p class="card-text">@item.PalletRackName</p>
+                <a href="#" class="btn btn-primary ">Details</a>
+                <a href="#" class="btn btn-primary ">Edit</a>
+                <a href="#" class="btn btn-primary ">Delete</a>
+
+            </div>
+
+        </div>
+    }
+</div>

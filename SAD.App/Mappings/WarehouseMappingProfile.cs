@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SAD.App.Warehause;
+using SAD.App.Warehouse;
 using SAD.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace SAD.App.Mappings
 {
-    public class WarehauseMappingProfile : Profile
+    public class WarehouseMappingProfile : Profile
     {
-        public WarehauseMappingProfile()
+        public WarehouseMappingProfile()
         {
-            CreateMap<WarehauseDto, SAD.Domain.Entities.Warehause>().ForMember(e => e.PalletRack, opt => opt.MapFrom(src => new PalletRack()
+            CreateMap<WarehouseDto, SAD.Domain.Entities.Warehouse>().ForMember(e => e.PalletRack, opt => opt.MapFrom(src => new PalletRack()
             {
                 Name = src.PalletRackName,
                 Position = src.PalletRackPosition,
             }));
 
-            CreateMap<SAD.Domain.Entities.Warehause, WarehauseDto>()
+            CreateMap<SAD.Domain.Entities.Warehouse, WarehouseDto>()
                 .ForMember(wd => wd.PalletRackName, opt => opt.MapFrom(src => src.PalletRack.Name))
                 .ForMember(wd => wd.PalletRackPosition, opt => opt.MapFrom(src => src.PalletRack.Position));
 

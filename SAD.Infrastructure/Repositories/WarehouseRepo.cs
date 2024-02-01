@@ -5,24 +5,24 @@ using SAD.Infrastructure.DB;
 
 namespace SAD.Infrastructure.Repositories
 {
-    internal class WarehauseRepo : IWarehauseRepo
+    internal class WarehouseRepo : IWarehouseRepo
     {
         private readonly SaDDbContext _dbContext;
-        public WarehauseRepo(SaDDbContext dbContext)
+        public WarehouseRepo(SaDDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public async Task Create(Domain.Entities.Warehause warehause)
+        public async Task Create(Domain.Entities.Warehouse warehouse)
         {
-            _dbContext.Add(warehause);
+            _dbContext.Add(warehouse);
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Warehause>> GetAll()        
-            => await _dbContext.Warehauses.ToListAsync();
+        public async Task<IEnumerable<Warehouse>> GetAll()        
+            => await _dbContext.Warehouses.ToListAsync();
         
 
-        public Task<Warehause?> GetBySeo(string seo)
+        public Task<Warehouse?> GetBySeo(string seo)
         {
             throw new NotImplementedException();
         }

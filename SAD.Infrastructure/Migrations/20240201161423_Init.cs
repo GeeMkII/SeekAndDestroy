@@ -12,7 +12,7 @@ namespace SAD.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Warehauses",
+                name: "Warehouses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,7 +29,7 @@ namespace SAD.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Warehauses", x => x.Id);
+                    table.PrimaryKey("PK_Warehouses", x => x.Id);
                 });
         }
 
@@ -37,7 +37,7 @@ namespace SAD.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Warehauses");
+                name: "Warehouses");
         }
     }
 }

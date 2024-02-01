@@ -19,7 +19,7 @@ namespace SAD.Infrastructure.DB
                 firstDbTablesCreate.CreateTables();
             }
         }
-        public DbSet<SAD.Domain.Entities.Warehause> Warehauses { get; set;}
+        public DbSet<SAD.Domain.Entities.Warehouse> Warehouses { get; set;}
         /// <summary>
         /// 
         /// </summary>
@@ -30,7 +30,7 @@ namespace SAD.Infrastructure.DB
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Domain.Entities.Warehause>().OwnsOne(c => c.PalletRack);
+            modelBuilder.Entity<Domain.Entities.Warehouse>().OwnsOne(c => c.PalletRack);
         }
     }
 }

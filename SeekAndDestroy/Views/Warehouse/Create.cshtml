@@ -1,4 +1,4 @@
-﻿@model SAD.Domain.Entities.Warehause
+﻿@model SAD.Domain.Entities.Warehouse
 
 @{
     ViewData["Title"] = "Create";
@@ -6,7 +6,7 @@
 
 <h1>Create Plate</h1>
 
-<h4>Warehause</h4>
+<h4>Warehouse</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,9 +14,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
           
             <div class="form-group">
-                <label asp-for="Hardnes" class="control-label">Hardness</label>
-                <input asp-for="Hardnes" class="form-control" />
-                <span asp-validation-for="Hardnes" class="text-danger"></span>
+                <label asp-for="Hardness" class="control-label">Hardness</label>
+                <input asp-for="Hardness" class="form-control" />
+                <span asp-validation-for="Hardness" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Width" class="control-label"></label>
@@ -29,9 +29,9 @@
                 <span asp-validation-for="Height" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Thicness" class="control-label"></label>
-                <input asp-for="Thicness" class="form-control" />
-                <span asp-validation-for="Thicness" class="text-danger"></span>
+                <label asp-for="Thickness" class="control-label"></label>
+                <input asp-for="Thickness" class="form-control" />
+                <span asp-validation-for="Thickness" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PalletRack.Name" class="control-label">Pallet Rack Name</label>
@@ -52,6 +52,9 @@
          
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Warehouse list" class="btn btn-primary" />
             </div>
         </form>
     </div>

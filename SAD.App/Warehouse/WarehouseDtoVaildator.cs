@@ -1,13 +1,13 @@
 ﻿using FluentValidation;
 using SAD.Domain.Interfaces;
 
-namespace SAD.App.Warehause
+namespace SAD.App.Warehouse
 {//AbstractVal - parametr generyczny przyjmuje typ do walidacji
-    public class WarehauseDtoVaildator : AbstractValidator<WarehauseDto>
+    public class WarehouseDtoVaildator : AbstractValidator<WarehouseDto>
     {
-        public WarehauseDtoVaildator(IWarehauseRepo repo)
+        public WarehouseDtoVaildator(IWarehouseRepo repo)
         {
-            RuleFor(c => c.Hardnes)
+            RuleFor(c => c.Hardness)
                 .NotEmpty()
                 .MinimumLength(4).WithMessage("xxx")
                 .MaximumLength(5)                
@@ -29,7 +29,7 @@ namespace SAD.App.Warehause
                 .LessThan(12100)
             //    .WithErrorCode("Between 1000 - 12100")
             ;
-            RuleFor(c => c.Thicness)
+            RuleFor(c => c.Thickness)
                 .NotEmpty()
                 .GreaterThan(1)
                 .LessThan(60)
@@ -51,8 +51,8 @@ namespace SAD.App.Warehause
            // RuleFor(c => c.Name)
            //     .Custom((valPosition, context) =>
            //     {
-           //         var inWarhause = repo.GetByName(valPosition).Result;
-           //         if (inWarhause != null)
+           //         var inWarehouse = repo.GetByName(valPosition).Result;
+           //         if (inWarehouse != null)
             //        {
             //            context.AddFailure($"{valPosition} -Position taken");
              //       }
