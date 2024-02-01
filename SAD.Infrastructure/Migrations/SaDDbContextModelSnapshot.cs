@@ -66,7 +66,9 @@ namespace SAD.Infrastructure.Migrations
                                 .HasColumnType("int");
 
                             b1.Property<string>("Name")
-                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Position")
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("WarehauseId");

@@ -12,7 +12,7 @@ using SAD.Infrastructure.DB;
 namespace SAD.Infrastructure.Migrations
 {
     [DbContext(typeof(SaDDbContext))]
-    [Migration("20240129134023_Init")]
+    [Migration("20240201161423_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -69,7 +69,9 @@ namespace SAD.Infrastructure.Migrations
                                 .HasColumnType("int");
 
                             b1.Property<string>("Name")
-                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Position")
                                 .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("WarehauseId");

@@ -22,7 +22,7 @@ namespace SAD.Infrastructure.Seeders
         {
             if(await _dbContext.Database.CanConnectAsync())
             {
-                if(!_dbContext.Warehauses.Any())
+                if( !_dbContext.Warehauses.Any()  )
                 {
                     var p1 = new Domain.Entities.Warehause() //pozycja na stojaku p-przód s-środek t-tył. Numery = piętra.
                     {
@@ -32,7 +32,9 @@ namespace SAD.Infrastructure.Seeders
                         Thicness = 8,
                         PalletRack = new()
                         {
-                            Name ="Namiot"
+                            Name ="Namiot",
+                            Position = "p1"
+                            
                         }
 
                     };
@@ -46,7 +48,8 @@ namespace SAD.Infrastructure.Seeders
                         Thicness = 10,
                         PalletRack = new()
                         {
-                            Name = "Namiot"
+                            Name = "Namiot",
+                            Position = "p1"                           
                         }
 
                     };
@@ -61,7 +64,8 @@ namespace SAD.Infrastructure.Seeders
                         Description = "Odpad",
                         PalletRack = new()
                         {
-                            Name = "Namiot"
+                            Name = "Namiot",
+                            Position = "p1"
                         }
 
                     };

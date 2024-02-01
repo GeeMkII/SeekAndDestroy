@@ -22,7 +22,8 @@ namespace SAD.Infrastructure.Migrations
                     Height = table.Column<int>(type: "int", nullable: false),
                     Thicness = table.Column<int>(type: "int", nullable: false),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PalletRack_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PalletRack_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PalletRack_Position = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SEOName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

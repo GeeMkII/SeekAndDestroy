@@ -8,6 +8,7 @@ namespace SAD.Domain.Entities
 {
     public class PalletRack
     {
-        public string Name { get; set; } = default!;
+        public string? Name { get; set; } = default!;
+        public string? Position { get; set; } = default!;
     }
 }
