@@ -20,7 +20,9 @@ namespace SAD.Infrastructure.Repositories
 
         public async Task<IEnumerable<Warehouse>> GetAll()        
             => await _dbContext.Warehouses.ToListAsync();
-        
+
+        public Task<Warehouse> GetById(int plateId)
+        => _dbContext.Warehouses.FirstAsync(w => w.Id == plateId);
 
         public Task<Warehouse?> GetBySeo(string seo)
         {

@@ -1,32 +1,44 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SAD.App.Services;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using SAD.App.Warehouse.Comands.CretaPlates;
+using SAD.App.Warehouse.Queries.GetAllPlates;
+using SAD.App.Warehouse.Queries.GetAllPlates.GetById;
 
 namespace SeekAndDestroy.Controllers
 {
     public class WarehouseController : Controller
     {
-        private readonly IWarehouseService _warehauseService;
+        private readonly IMediator _mediator;
 
-        public WarehouseController(IWarehouseService warehauseService)
+        public WarehouseController(IMediator mediator)
         {
-            _warehauseService = warehauseService;
+            _mediator = mediator;
         }
-        public async Task<IActionResult> IndexWarehause()
+        public async Task<IActionResult> IndexWarehouse()
         {
-            var warehauses = await _warehauseService.GetAll();
-            return View(warehauses);
+            var warehouses = await _mediator.Send(new GetAllPlatesQuery());
+            return View(warehouses);
         }
         public IActionResult Create()
         {
             return View();
         }
-
+        [Route("Warehouse/(plateId)/Details")]
+        public async Task<IActionResult> Details(int plateId)
+        {
+            var dto = await _mediator.Send(new GetPlateById(plateId));
+            return View(dto);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm]SAD.Domain.Entities.Warehouse warehause)
+        public async Task<IActionResult> Create(CreatePlatesCmd command)
         {
-           await _warehauseService.Create(warehause);
-            return RedirectToAction(nameof(IndexWarehause)); //powrót do widoku
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
+           await _mediator.Send(command);
+            return RedirectToAction(nameof(IndexWarehouse)); //powrót do widoku
         }
     }
 }

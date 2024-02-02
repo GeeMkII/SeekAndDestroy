@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -26,7 +27,10 @@ namespace SAD.Infrastructure.DB
         /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionDB"));
+            optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable(
+              "ConnectionDB"
+             //   "Server = (localdb)\\mssqllocaldb; Database = WarehauseDb; Trusted_Connection = True;"
+                ));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

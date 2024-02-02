@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<SAD.App.Warehouse.WarehouseDto>
 
-@{
-    ViewData["Title"] = "IndexWarehouse";
-}
 
 <h1>Plates</h1>
 
@@ -12,7 +9,7 @@
 <div>
     @foreach(var item in Model)
     {
-        <div class="card m-3" style="width: 18rem;">
+        <div class="card m-1" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">@item.Hardness</h5>
                 <h5 class="card-title">@item.Thickness</h5>
@@ -23,7 +20,8 @@
                 <p class="card-text">@item.Description</p>
                 <p class="card-text">@item.PalletRackName</p>
                 <p class="card-text">@item.PalletRackName</p>
-                <a href="#" class="btn btn-primary ">Details</a>
+                <a class="btn btn-primary" asp-controller="Warehouse" asp-action="Details" asp-route-Id="plateId" >Details</a>
+
                 <a href="#" class="btn btn-primary ">Edit</a>
                 <a href="#" class="btn btn-primary ">Delete</a>
 

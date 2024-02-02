@@ -13,7 +13,8 @@ using System.Xml.Linq;
 namespace SAD.App.Warehouse
 { //AutoMapper. -model do formularza
     public class WarehouseDto
-    {      
+    {
+        public int Id { get; set; } = default(int);
         public string Hardness { get; set; } = default!;      
         public int Width { get; set; } =default!;      
         public int Height { get; set; } = default!;    

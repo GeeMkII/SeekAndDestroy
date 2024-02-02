@@ -1,5 +1,7 @@
-﻿@model SAD.Domain.Entities.Warehouse
+﻿@using SAD.App.Warehouse.Comands.CretaPlates
 
+
+@model CreatePlatesCmd;
 @{
     ViewData["Title"] = "Create";
 }
@@ -34,13 +36,13 @@
                 <span asp-validation-for="Thickness" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PalletRack.Name" class="control-label">Pallet Rack Name</label>
-                <input asp-for="PalletRack.Name" class="form-control" />
+                <label asp-for="PalletRackName" class="control-label">Pallet Rack Name</label>
+                <input asp-for="PalletRackName" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PalletRack.Position" class="control-label">Pallet Rack Position</label>
-                <input asp-for="PalletRack.Position" class="form-control" />
+                <label asp-for="PalletRackPosition" class="control-label">Pallet Rack Position</label>
+                <input asp-for="PalletRackPosition" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,18 +51,13 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
            
-         
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit"  asp-action="IndexWarehouse" value="Create and list" class="btn btn-primary" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Warehouse list" class="btn btn-primary" />
-            </div>
+       
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 

@@ -1,7 +1,9 @@
 ﻿
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using SAD.App.Mappings;
-using SAD.App.Services;
+using SAD.App.Warehouse.Comands.CretaPlates;
+using SAD.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,7 @@ namespace SAD.App.Eztensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IWarehouseService, WarehouseService>();
+            services.AddMediatR(typeof(CreatePlatesCmd));
             services.AddAutoMapper(typeof(WarehouseMappingProfile));
         }
     }

@@ -1,0 +1,42 @@
+﻿@model SAD.App.Warehouse.WarehouseDto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.PalletRackName - @Model.PalletRackPosition - Details</h1>
+
+<div>
+    <h4>WarehouseDto</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hardness)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hardness)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Thickness)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Thickness)
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="IndexWarehouse">Back to List</a>
+</div>

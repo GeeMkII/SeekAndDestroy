@@ -1,16 +1,16 @@
 ﻿using FluentValidation;
 using SAD.Domain.Interfaces;
 
-namespace SAD.App.Warehouse
+namespace SAD.App.Warehouse.Comands.CretaPlates
 {//AbstractVal - parametr generyczny przyjmuje typ do walidacji
-    public class WarehouseDtoVaildator : AbstractValidator<WarehouseDto>
+    public class CreateWarehouseCmdVaildator : AbstractValidator<CreatePlatesCmd>
     {
-        public WarehouseDtoVaildator(IWarehouseRepo repo)
+        public CreateWarehouseCmdVaildator(IWarehouseRepo repo)
         {
             RuleFor(c => c.Hardness)
                 .NotEmpty()
                 .MinimumLength(4).WithMessage("xxx")
-                .MaximumLength(5)                
+                .MaximumLength(5)
                // 
                //  .WithErrorCode("S355, HB450, HB500, HB550")
                ;
@@ -48,21 +48,21 @@ namespace SAD.App.Warehouse
                 .MinimumLength(2)
                 .MaximumLength(3)
                 ;
-           // RuleFor(c => c.Name)
-           //     .Custom((valPosition, context) =>
-           //     {
-           //         var inWarehouse = repo.GetByName(valPosition).Result;
-           //         if (inWarehouse != null)
+            // RuleFor(c => c.Name)
+            //     .Custom((valPosition, context) =>
+            //     {
+            //         var inWarehouse = repo.GetByName(valPosition).Result;
+            //         if (inWarehouse != null)
             //        {
             //            context.AddFailure($"{valPosition} -Position taken");
-             //       }
+            //       }
 
-              
-       // )
-              //   .WithMessage("Required")
-              //  .WithErrorCode("Between 2 or 3 char")
-          //    ;
-        //
+
+            // )
+            //   .WithMessage("Required")
+            //  .WithErrorCode("Between 2 or 3 char")
+            //    ;
+            //
         }
     }
 }
