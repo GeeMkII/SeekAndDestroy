@@ -1,14 +1,4 @@
-﻿using SAD.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-
+﻿
 
 namespace SAD.App.Warehause
 { //AutoMapper. -model do formularza
@@ -24,6 +14,6 @@ namespace SAD.App.Warehause
         public string? SEOName { get; set; }
     //    public string Name { get; private set; } = default!;
 
-    //    public void CreateName() => Name = Hardnes + Width + Height + Thicness + PalletRackName + PalletRackPosition;
+  
     }
 }
