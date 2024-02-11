@@ -6,19 +6,19 @@ namespace SAD.App.Services
 {
     public class WarehauseService : IWarehauseService
         {
-            private readonly IWarehauseRepo _warehauseRepo;
+            private readonly IWarehauseRepo _warehouseRepo;
             private readonly IMapper _mapper;
 
-            public WarehauseService(IWarehauseRepo warehauseRepo, IMapper mapper)
+            public WarehauseService(IWarehauseRepo warehouseRepo, IMapper mapper)
             {
-                _warehauseRepo = warehauseRepo;
+                _warehouseRepo = warehouseRepo;
                 _mapper = mapper;
             }
-            public async Task Create(Domain.Entities.Warehause warehause)
+            public async Task Create(Domain.Entities.Warehause warehouse)
             {//Łączymy warstwę App z Infrastruktórą przez warstwę domeny by zachować CLEAN arch.
                 //Infrastruktóre/IWarehauseRepo
-                warehause.SeoName();
-                await _warehauseRepo.Create(warehause);
+                warehouse.SeoName();
+                await _warehouseRepo.Create(warehouse);
             }
 
           // public Task Dellete()
@@ -28,9 +28,9 @@ namespace SAD.App.Services
 
         public async Task<IEnumerable<WarehauseDto>> GetAll()
         {
-            var warehauses = await _warehauseRepo.GetAll();
-            var warehauseDtosMap = _mapper.Map<IEnumerable<WarehauseDto>>(warehauses);
-            return warehauseDtosMap;
+            var warehouses = await _warehouseRepo.GetAll();
+            var warehouseDtosMap = _mapper.Map<IEnumerable<WarehauseDto>>(warehouses);
+            return warehouseDtosMap;
         }
     }
     }

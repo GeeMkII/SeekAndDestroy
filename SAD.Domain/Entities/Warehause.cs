@@ -18,6 +18,6 @@ namespace SAD.Domain.Entities
         public PalletRack PalletRack { get; set; } = default!;
         public string? Description { get; set; }
         public string SEOName { get; private set; } = default!;
-        public void SeoName() => SEOName = Hardnes.ToLower().Replace(" ", "_");
+        public void SeoName() => SEOName = Hardnes.ToLower().Replace(" ", "_")+"_"+PalletRack.Name.ToLower().Replace(" ", "_")+"_"+PalletRack.Position.ToLower().Replace(" ", "_");
     }
 }
