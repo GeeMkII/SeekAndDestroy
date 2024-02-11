@@ -14,7 +14,7 @@ namespace SAD.App.Mappings
                 Position = src.PalletRackPosition,
             }));
 
-            CreateMap<SAD.Domain.Entities.Warehause, WarehauseDto>()
+            CreateMap<Domain.Entities.Warehause, WarehauseDto>()
                 .ForMember(wd => wd.PalletRackName, opt => opt.MapFrom(src => src.PalletRack.Name))
                 .ForMember(wd => wd.PalletRackPosition, opt => opt.MapFrom(src => src.PalletRack.Position));
 

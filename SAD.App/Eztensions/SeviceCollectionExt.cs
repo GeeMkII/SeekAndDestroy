@@ -1,12 +1,10 @@
 ﻿
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using SAD.App.Mappings;
 using SAD.App.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SAD.App.Warehause;
 
 namespace SAD.App.Eztensions
 {//Dodanie zależnosci
@@ -16,6 +14,8 @@ namespace SAD.App.Eztensions
         {
             services.AddScoped<IWarehauseService, WarehauseService>();
             services.AddAutoMapper(typeof(WarehauseMappingProfile));
+
+            services.AddValidatorsFromAssemblyContaining<WarehauseDtoVaildator>().AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
         }
     }
 }

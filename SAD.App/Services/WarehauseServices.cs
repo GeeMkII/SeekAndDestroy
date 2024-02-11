@@ -14,10 +14,12 @@ namespace SAD.App.Services
                 _warehouseRepo = warehouseRepo;
                 _mapper = mapper;
             }
-            public async Task Create(Domain.Entities.Warehause warehouse)
+            public async Task Create(WarehauseDto warehouseDto)
             {//Łączymy warstwę App z Infrastruktórą przez warstwę domeny by zachować CLEAN arch.
-                //Infrastruktóre/IWarehauseRepo
+             //Infrastruktóre/IWarehauseRepo
+                var warehouse = _mapper.Map<Domain.Entities.Warehause>(warehouseDto);
                 warehouse.SeoName();
+
                 await _warehouseRepo.Create(warehouse);
             }
 

@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SAD.App.Services;
+using SAD.App.Warehause;
 
 namespace SeekAndDestroy.Controllers
 {
     public class WarehauseController : Controller
     {
-        private readonly IWarehauseService _warehauseService;
+        private readonly IWarehauseService _warehouseService;
 
-        public WarehauseController(IWarehauseService warehauseService)
+        public WarehauseController(IWarehauseService warehouseService)
         {
-            _warehauseService = warehauseService;
+            _warehouseService = warehouseService;
         }
-        public async Task<IActionResult> IndexWarehause()
+        public async Task<IActionResult> IndexWarehouse()
         {
-            var warehauses = await _warehauseService.GetAll();
-            return View(warehauses);
+            var warehouses = await _warehouseService.GetAll();
+            return View(warehouses);
         }
         public IActionResult Create()
         {
@@ -23,10 +24,15 @@ namespace SeekAndDestroy.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(SAD.Domain.Entities.Warehause warehause)
+        public async Task<IActionResult> Create(WarehauseDto warehouse)
+            
         {
-           await _warehauseService.Create(warehause);
-            return RedirectToAction(nameof(IndexWarehause)); //tymczasowo Create
+            if (!ModelState.IsValid)
+            {
+                return View(warehouse);
+            }
+            await _warehouseService.Create(warehouse);
+            return RedirectToAction(nameof(IndexWarehouse)); //tymczasowo Create
         }
     }
 }
