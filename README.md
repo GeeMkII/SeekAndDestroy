@@ -9,3 +9,4 @@ Baza danych pod adresem.
 localhost:4568/Warehause/create
 
 W trakcie prac nad Delete i search.
+Następnie baza użytkowników i logowanie.
