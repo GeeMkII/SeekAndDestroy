@@ -17,10 +17,10 @@ namespace SAD.Infrastructure.Extensions
     {
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<SaDDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Warehause")));
+            services.AddDbContext<SaDDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Warehouse")));
 
             services.AddScoped<SaDSeeder>();
-            services.AddScoped<IWarehauseRepo, WarehauseRepo>();
+            services.AddScoped<IWarehouseRepo, WarehouseRepo>();
         }
     }
 }

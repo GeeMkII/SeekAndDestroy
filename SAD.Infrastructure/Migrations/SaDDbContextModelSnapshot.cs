@@ -22,7 +22,7 @@ namespace SAD.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SAD.Domain.Entities.Warehause", b =>
+            modelBuilder.Entity("SAD.Domain.Entities.Warehouse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace SAD.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Hardnes")
+                    b.Property<string>("Hardness")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -47,7 +47,7 @@ namespace SAD.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Thicness")
+                    b.Property<int>("Thickness")
                         .HasColumnType("int");
 
                     b.Property<int>("Width")
@@ -55,14 +55,14 @@ namespace SAD.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Warehauses");
+                    b.ToTable("Warehouses");
                 });
 
-            modelBuilder.Entity("SAD.Domain.Entities.Warehause", b =>
+            modelBuilder.Entity("SAD.Domain.Entities.Warehouse", b =>
                 {
                     b.OwnsOne("SAD.Domain.Entities.PalletRack", "PalletRack", b1 =>
                         {
-                            b1.Property<int>("WarehauseId")
+                            b1.Property<int>("WarehouseId")
                                 .HasColumnType("int");
 
                             b1.Property<string>("Name")
@@ -71,12 +71,12 @@ namespace SAD.Infrastructure.Migrations
                             b1.Property<string>("Position")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.HasKey("WarehauseId");
+                            b1.HasKey("WarehouseId");
 
-                            b1.ToTable("Warehauses");
+                            b1.ToTable("Warehouses");
 
                             b1.WithOwner()
-                                .HasForeignKey("WarehauseId");
+                                .HasForeignKey("WarehouseId");
                         });
 
                     b.Navigation("PalletRack")

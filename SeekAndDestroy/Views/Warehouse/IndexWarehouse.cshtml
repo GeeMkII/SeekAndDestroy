@@ -1,10 +1,10 @@
-﻿@model IEnumerable<SAD.App.Warehause.WarehauseDto>
+﻿@model IEnumerable<SAD.App.Warehouse.WarehouseDto>
 
 @{
-    ViewData["Title"] = "IndexWarehause";
+    ViewData["Title"] = "IndexWarehouse";
 }
 
-<h1>IndexWarhause</h1>
+<h1>IndexWarhouse</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Hardnes)
+                @Html.DisplayNameFor(model => model.Hardness)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Width)
@@ -22,7 +22,7 @@
                 @Html.DisplayNameFor(model => model.Height)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Thicness)
+                @Html.DisplayNameFor(model => model.Thickness)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PalletRackName)
@@ -43,7 +43,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Hardnes)
+                @Html.DisplayFor(modelItem => item.Hardness)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Width)
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(modelItem => item.Height)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Thicness)
+                @Html.DisplayFor(modelItem => item.Thickness)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PalletRackName)

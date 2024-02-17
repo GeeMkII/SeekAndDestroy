@@ -3,7 +3,7 @@ using SAD.Domain.Entities;
 using SAD.Infrastructure.DB;
 using SAD.Infrastructure.Extensions;
 using SAD.Infrastructure.Seeders;
-using SAD.App.Eztensions;
+using SAD.App.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

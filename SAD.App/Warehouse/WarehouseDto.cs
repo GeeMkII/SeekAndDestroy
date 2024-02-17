@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SAD.App.Warehause
+namespace SAD.App.Warehouse
 { //AutoMapper. -model do formularza
-    public class WarehauseDto
+    public class WarehouseDto
     {
         [Required]
         [StringLength(5, MinimumLength = 4, ErrorMessage = "4 or 5 char like S355 or HB450")]
-        public string Hardnes { get; set; } = default!;
+        public string Hardness { get; set; } = default!;
         [Range (600,12050, ErrorMessage = "{1} - {2})")]
         public int Width { get; set; } =default!;
         [Required]
@@ -14,7 +14,7 @@ namespace SAD.App.Warehause
         public int Height { get; set; } = default!;
         [Required]
         [Range(0.9, 50, ErrorMessage = "{1} - {2}")]
-        public int Thicness { get; set; } =default!;
+        public int Thickness { get; set; } =default!;
         [Required]
         public string? PalletRackName { get; set; } = default!;
         [Required]        

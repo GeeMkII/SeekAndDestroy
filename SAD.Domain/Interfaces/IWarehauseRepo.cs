@@ -1,10 +1,10 @@
 ﻿namespace SAD.Domain.Interfaces
 {
-    public interface IWarehauseRepo
+    public interface IWarehouseRepo
     {
-        Task Create(Domain.Entities.Warehause warehause);
-        Task<Entities.Warehause?> GetBySeo(string seo);
-        Task<IEnumerable<Entities.Warehause>> GetAll();
+        Task Create(Entities.Warehouse warehouse);
+        Task<Entities.Warehouse?> GetBySeo(string seo);
+        Task<IEnumerable<Entities.Warehouse>> GetAll();
        // Task Dellete(string seo);
     }
 }

@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using SAD.Domain.Interfaces;
 
-namespace SAD.App.Warehause
+namespace SAD.App.Warehouse
 {//AbstractVal - parametr generyczny przyjmuje typ do walidacji
-    public class WarehauseDtoVaildator : AbstractValidator<WarehauseDto>
+    public class WarehouseDtoVaildator : AbstractValidator<WarehouseDto>
     {
-        public WarehauseDtoVaildator(IWarehauseRepo repo)
+        public WarehouseDtoVaildator(IWarehouseRepo repo)
         {
             //RuleFor(c => c.Hardnes)
             //    .NotEmpty()
@@ -43,7 +43,7 @@ namespace SAD.App.Warehause
              //   .WithMessage("Required")
              //   .WithErrorCode("Between 4 - 20 char")
              ;
-            RuleFor(c => c.PalletRackPosition)
+            RuleFor(c => c.SEOName)
                 .NotEmpty()
                 .MinimumLength(2)
                 .MaximumLength(3)

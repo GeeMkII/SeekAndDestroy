@@ -22,14 +22,14 @@ namespace SAD.Infrastructure.Seeders
         {
             if(await _dbContext.Database.CanConnectAsync())
             {
-                if( !_dbContext.Warehauses.Any()  )
+                if( !_dbContext.Warehouses.Any()  )
                 {
-                    var p1 = new Domain.Entities.Warehause() //pozycja na stojaku p-przód s-środek t-tył. Numery = piętra.
+                    var p1 = new Warehouse() //pozycja na stojaku p-przód s-środek t-tył. Numery = piętra.
                     {
-                        Hardnes = "S355",
+                        Hardness = "S355",
                         Width = 200,
                         Height = 4000,
-                        Thicness = 8,
+                        Thickness = 8,
                         PalletRack = new()
 
                         {
@@ -41,12 +41,12 @@ namespace SAD.Infrastructure.Seeders
                     };
                     p1.SeoName();
 
-                    var s1 = new Domain.Entities.Warehause()
+                    var s1 = new Domain.Entities.Warehouse()
                     {
-                        Hardnes = "S355",
+                        Hardness = "S355",
                         Width = 400,
                         Height = 3000,
-                        Thicness = 10,
+                        Thickness = 10,
                         PalletRack = new()
                         {
                             Name = "Namiot",
@@ -56,12 +56,12 @@ namespace SAD.Infrastructure.Seeders
                     };
                     s1.SeoName();
 
-                    var t1 = new Domain.Entities.Warehause()
+                    var t1 = new Domain.Entities.Warehouse()
                     {
-                        Hardnes = "S355",
+                        Hardness = "S355",
                         Width = 222,
                         Height = 3333,
-                        Thicness = 12,
+                        Thickness = 12,
                         Description = "Odpad",
                         PalletRack = new()
                         {
@@ -72,7 +72,7 @@ namespace SAD.Infrastructure.Seeders
                     };
                     t1.SeoName();
                    
-                    _dbContext.Warehauses.AddRange(p1,s1,t1);
+                    _dbContext.Warehouses.AddRange(p1,s1,t1);
                     await _dbContext.SaveChangesAsync();
                 }
             }

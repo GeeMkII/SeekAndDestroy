@@ -1,23 +1,23 @@
 ﻿using AutoMapper;
-using SAD.App.Warehause;
+using SAD.App.Warehouse;
 using SAD.Domain.Interfaces;
 
 namespace SAD.App.Services
 {
-    public class WarehauseService : IWarehauseService
+    public class WarehouseService : IWarehouseService
         {
-            private readonly IWarehauseRepo _warehouseRepo;
+            private readonly IWarehouseRepo _warehouseRepo;
             private readonly IMapper _mapper;
 
-            public WarehauseService(IWarehauseRepo warehouseRepo, IMapper mapper)
+            public WarehouseService(IWarehouseRepo warehouseRepo, IMapper mapper)
             {
                 _warehouseRepo = warehouseRepo;
                 _mapper = mapper;
             }
-            public async Task Create(WarehauseDto warehouseDto)
+            public async Task Create(WarehouseDto warehouseDto)
             {//Łączymy warstwę App z Infrastruktórą przez warstwę domeny by zachować CLEAN arch.
              //Infrastruktóre/IWarehauseRepo
-                var warehouse = _mapper.Map<Domain.Entities.Warehause>(warehouseDto);
+                var warehouse = _mapper.Map<Domain.Entities.Warehouse>(warehouseDto);
                 warehouse.SeoName();
 
                 await _warehouseRepo.Create(warehouse);
@@ -28,10 +28,10 @@ namespace SAD.App.Services
            //         throw new NotImplementedException();
            //     }
 
-        public async Task<IEnumerable<WarehauseDto>> GetAll()
+        public async Task<IEnumerable<WarehouseDto>> GetAll()
         {
             var warehouses = await _warehouseRepo.GetAll();
-            var warehouseDtosMap = _mapper.Map<IEnumerable<WarehauseDto>>(warehouses);
+            var warehouseDtosMap = _mapper.Map<IEnumerable<WarehouseDto>>(warehouses);
             return warehouseDtosMap;
         }
     }

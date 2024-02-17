@@ -12,15 +12,15 @@ namespace SAD.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Warehauses",
+                name: "Warehouses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Hardnes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Hardness = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Width = table.Column<int>(type: "int", nullable: false),
                     Height = table.Column<int>(type: "int", nullable: false),
-                    Thicness = table.Column<int>(type: "int", nullable: false),
+                    Thickness = table.Column<int>(type: "int", nullable: false),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PalletRack_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PalletRack_Position = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -29,7 +29,7 @@ namespace SAD.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Warehauses", x => x.Id);
+                    table.PrimaryKey("PK_Warehouses", x => x.Id);
                 });
         }
 
@@ -37,7 +37,7 @@ namespace SAD.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Warehauses");
+                name: "Warehouses");
         }
     }
 }
