@@ -47,7 +47,7 @@ namespace SAD.App.Warehouse
                 .GreaterThan(1)
                 .LessThan(60)
                 .WithMessage("Required")
-                .WithErrorCode("Between 1 - 60")
+                .WithErrorCode("Between 0.9 - 50")
              ;
         }
     }
