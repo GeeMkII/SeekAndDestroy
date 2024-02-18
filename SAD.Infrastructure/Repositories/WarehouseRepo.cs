@@ -22,11 +22,8 @@ namespace SAD.Infrastructure.Repositories
 
         public async Task<IEnumerable<Warehouse>> GetAll()        
             => await _dbContext.Warehouses.ToListAsync();
-        
 
-        public Task<Warehouse?> GetBySeo(string seo)
-        {
-            throw new NotImplementedException();
-        }
+
+        public Task<Warehouse?> GetBySeo(string seo) => _dbContext.Warehouses.FirstOrDefaultAsync(cw => cw.SEOName == seo);
     }
 }

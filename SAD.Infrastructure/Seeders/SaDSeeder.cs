@@ -50,7 +50,7 @@ namespace SAD.Infrastructure.Seeders
                         PalletRack = new()
                         {
                             Name = "Namiot",
-                            Position = "p1"                           
+                            Position = "s1"                           
                         }
 
                     };
@@ -66,7 +66,7 @@ namespace SAD.Infrastructure.Seeders
                         PalletRack = new()
                         {
                             Name = "Namiot",
-                            Position = "p1"
+                            Position = "t1"
                         }
 
                     };

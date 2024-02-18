@@ -1,15 +1,27 @@
 ﻿// Ignore Spelling: App Vaildator Dto repo
 
 using FluentValidation;
+using FluentValidation.Internal;
 using SAD.Domain.Interfaces;
 
 namespace SAD.App.Warehouse
 {//AbstractVal - parametr generyczny przyjmuje typ do walidacji
     public class WarehouseDtoVaildator : AbstractValidator<WarehouseDto>
     {
+        
         public WarehouseDtoVaildator(IWarehouseRepo repo)
         {
-           // SeoName();
+            RuleFor(c => c.SEOName)   
+                .Custom((value, context) =>
+                    {
+                        var wareHouseInBase = repo.GetBySeo(value).Result;
+                        if (wareHouseInBase != null)
+                        {                        
+                            context.RootContextData["SEONameInvalid"] = true;                            
+                        }
+                    }
+                );
+                
             RuleFor(c => c.PalletRackName)
              .NotEmpty()
              .MinimumLength(3)
@@ -20,7 +32,16 @@ namespace SAD.App.Warehouse
                 .NotEmpty()
                 .MinimumLength(2)
                 .MaximumLength(3)
-               .WithErrorCode("Between 2 - 3 char")
+                .WithErrorCode("Between 2 - 3 char")
+                .Custom( (value, context) =>
+                {
+                    if (context.RootContextData.TryGetValue("SEONameInvalid", out var seoNameInvalid) && (bool)seoNameInvalid)
+                    {
+                        context.AddFailure($"{value} existing. Place not empty");   
+                    }
+                    
+                } )
+                
             ;
             RuleFor(c => c.Hardness)
                 .NotEmpty()

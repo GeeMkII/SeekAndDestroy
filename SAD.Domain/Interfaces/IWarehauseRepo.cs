@@ -1,4 +1,6 @@
-﻿namespace SAD.Domain.Interfaces
+﻿// Ignore Spelling: Repo
+
+namespace SAD.Domain.Interfaces
 {
     public interface IWarehouseRepo
     {
