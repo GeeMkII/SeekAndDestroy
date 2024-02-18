@@ -2,6 +2,7 @@
 
 using AutoMapper;
 using SAD.App.Warehouse;
+using SAD.App.Warehouse.Commands.EditWareHouse;
 using SAD.Domain.Entities;
 
 namespace SAD.App.Mappings
@@ -21,6 +22,8 @@ namespace SAD.App.Mappings
             CreateMap<Domain.Entities.Warehouse, WarehouseDto>()
                 .ForMember(wd => wd.PalletRackName, opt => opt.MapFrom(src => src.PalletRack.Name))
                 .ForMember(wd => wd.PalletRackPosition, opt => opt.MapFrom(src => src.PalletRack.Position));
+
+            CreateMap<WarehouseDto, EditWareHouseCmd>();
 
         }
     }

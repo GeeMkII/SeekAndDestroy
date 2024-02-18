@@ -1,0 +1,61 @@
+﻿@model SAD.App.Warehouse.WarehouseDto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1> Details</h1>
+
+<div>
+    <h4>Warehouse-item</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Hardness)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Hardness)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Width)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Width)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Thickness)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Thickness)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.PalletRackName)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.PalletRackName)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.PalletRackPosition)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.PalletRackPosition)
+        </dd>
+        <dt class = "col-sm-4">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-6">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="IndexWareHouse">Back to List</a>
+</div>

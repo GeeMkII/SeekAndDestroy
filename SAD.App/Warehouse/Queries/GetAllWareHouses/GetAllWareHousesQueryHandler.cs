@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SAD.App.Warehouse.Queries.GetAllWareHouses
 {
-    internal class GetAllWareHousesQueryHandler : IRequestHandler<GetAllWareHousesQuery, IEnumerable<WarehouseDto>>
+    public class GetAllWareHousesQueryHandler : IRequestHandler<GetAllWareHousesQuery, IEnumerable<WarehouseDto>>
     {
         private readonly IWarehouseRepo _warehouseRepo;
         private readonly IMapper _mapper;

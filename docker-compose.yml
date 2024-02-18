@@ -6,8 +6,7 @@ services:
     networks:
         - myNet1
     image: mcr.microsoft.com/mssql/server:2022-latest
-    ports:                
-        - 3307:3306
+    
     volumes:
         - BackUpSql:/var/opt/mssql
     environment:
@@ -19,7 +18,7 @@ services:
             - myNet1
         image: ${DOCKER_REGISTRY-}seekanddestroy
         ports:                
-                - 7777:443
+                - 4568:443
         environment:
             - ConnectionDB=Server=WuhanDB; Database=SaDDB; User Id=sa; Password=q1W@e3r4t5; Trust Server Certificate=True;
 

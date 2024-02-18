@@ -24,6 +24,6 @@ namespace SAD.Infrastructure.Repositories
             => await _dbContext.Warehouses.ToListAsync();
 
 
-        public Task<Warehouse?> GetBySeo(string seo) => _dbContext.Warehouses.FirstOrDefaultAsync(cw => cw.SEOName == seo);
+        public Task<Warehouse?> GetBySeo(string seo) => _dbContext.Warehouses.FirstAsync(cw => cw.SEOName == seo);
     }
 }

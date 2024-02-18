@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SAD.App.Warehouse.Queries.GetAllWareHouses
+namespace SAD.App.Warehouse.Commands.EditWareHouse
 {
-    public class GetAllWareHousesQuery : IRequest<IEnumerable<WarehouseDto>>
+    public class EditWareHouseCmd : WarehouseDto, IRequest
     {
+
     }
 }

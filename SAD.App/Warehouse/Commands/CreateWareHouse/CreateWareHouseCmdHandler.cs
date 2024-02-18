@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SAD.App.Warehouse.Commands.CreateWareHouse
 {
-    internal class CreateWareHouseCmdHandler : IRequestHandler<CreateWareHouseCmd>
+    public class CreateWareHouseCmdHandler : IRequestHandler<CreateWareHouseCmd>
     {
         private readonly IWarehouseRepo _warehouseRepo;
         private readonly IMapper _mapper;
