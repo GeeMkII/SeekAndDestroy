@@ -4,8 +4,10 @@ services:
   sqlDB:
     container_name: WuhanDB
     networks:
-        - myNet
+        - myNet1
     image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:                
+        - 3307:3306
     volumes:
         - BackUpSql:/var/opt/mssql
     environment:
@@ -14,10 +16,10 @@ services:
   seekanddestroy:
         container_name: WuhanSaD
         networks: 
-            - myNet
+            - myNet1
         image: ${DOCKER_REGISTRY-}seekanddestroy
         ports:                
-                - 4568:443
+                - 7777:443
         environment:
             - ConnectionDB=Server=WuhanDB; Database=SaDDB; User Id=sa; Password=q1W@e3r4t5; Trust Server Certificate=True;
 
@@ -25,8 +27,18 @@ services:
         build:
           context: .
           dockerfile: SeekAndDestroy/Dockerfile
+
+  phpmyadmin:
+    container_name: WuhanPHP
+    networks: 
+            - myNet1
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    
 networks:
-  myNet:
+  myNet1:
 volumes:
     BackUpSql:
 
