@@ -6,53 +6,41 @@
 
 <h1>Edit</h1>
 
-<h4>EditWareHouseCmd</h4>
+<h4>@Model.SEOName</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" m-3>
                 <label asp-for="Hardness" class="control-label"></label>
                 <input asp-for="Hardness" class="form-control" />
                 <span asp-validation-for="Hardness" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" m-3>
                 <label asp-for="Width" class="control-label"></label>
                 <input asp-for="Width" class="form-control" />
                 <span asp-validation-for="Width" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" m-3>
                 <label asp-for="Height" class="control-label"></label>
                 <input asp-for="Height" class="form-control" />
                 <span asp-validation-for="Height" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" m-3>
                 <label asp-for="Thickness" class="control-label"></label>
                 <input asp-for="Thickness" class="form-control" />
                 <span asp-validation-for="Thickness" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="PalletRackName" class="control-label"></label>
-                <input asp-for="PalletRackName" class="form-control" />
-                <span asp-validation-for="PalletRackName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PalletRackPosition" class="control-label"></label>
-                <input asp-for="PalletRackPosition" class="form-control" />
-                <span asp-validation-for="PalletRackPosition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+      
+       
+            <div class="form-group" m-3>
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SEOName" class="control-label"></label>
-                <input asp-for="SEOName" class="form-control" />
-                <span asp-validation-for="SEOName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+           
+            <div class="form-group" m-3>
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -60,7 +48,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary" asp-action="IndexWareHouse">Back to List</a>
 </div>
 
 @section Scripts {

@@ -49,6 +49,22 @@ namespace SeekAndDestroy.Controllers
 
 
         [HttpPost]
+        [Route("WareHouse/{SEOName}/Edit")]
+        public async Task<IActionResult> Edit(string seoName, EditWareHouseCmd createWareHouseCmd)
+            
+        {
+            createWareHouseCmd.SEOName = createWareHouseCmd.PalletRackName.ToLower().Replace(" ", "_") + "_" + createWareHouseCmd.PalletRackPosition.ToLower().Replace(" ", "_");
+
+              if (!ModelState.IsValid)
+                {
+                    return View(createWareHouseCmd);
+                }
+            await _mediator.Send(createWareHouseCmd);
+            return RedirectToAction(nameof(IndexWarehouse)); 
+        }
+
+
+        [HttpPost]
         public async Task<IActionResult> Create(CreateWareHouseCmd createWareHouseCmd)
             
         {

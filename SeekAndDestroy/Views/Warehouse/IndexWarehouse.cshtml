@@ -70,6 +70,7 @@
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |   
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                 <a class="btn btn-primary" asp-asp-controller="Warehouse" asp-action="Details" asp-route-SEOName="@item.SEOName">Details</a>
+                <a class="btn btn-primary" asp-asp-controller="Warehouse" asp-action="Edit" asp-route-SEOName="@item.SEOName">Edit</a>
             </td>
         </tr>
 }

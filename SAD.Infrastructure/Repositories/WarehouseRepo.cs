@@ -20,6 +20,9 @@ namespace SAD.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
+        public Task Commit()
+            => _dbContext.SaveChangesAsync();
+
         public async Task<IEnumerable<Warehouse>> GetAll()        
             => await _dbContext.Warehouses.ToListAsync();
 
