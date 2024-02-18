@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿// Ignore Spelling: App
+
+using AutoMapper;
 using SAD.App.Warehouse;
 using SAD.Domain.Entities;
 

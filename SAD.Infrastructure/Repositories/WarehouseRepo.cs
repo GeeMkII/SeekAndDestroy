@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// Ignore Spelling: Repo Seo
+
+using Microsoft.EntityFrameworkCore;
 using SAD.Domain.Entities;
 using SAD.Domain.Interfaces;
 using SAD.Infrastructure.DB;

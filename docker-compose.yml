@@ -28,14 +28,6 @@ services:
           context: .
           dockerfile: SeekAndDestroy/Dockerfile
 
-  phpmyadmin:
-    container_name: WuhanPHP
-    networks: 
-            - myNet1
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    ports:
-      - 8081:80
     
 networks:
   myNet1:

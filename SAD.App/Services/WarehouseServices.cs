@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿// Ignore Spelling: Repo Dto App
+
+using AutoMapper;
 using SAD.App.Warehouse;
 using SAD.Domain.Interfaces;
 

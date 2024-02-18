@@ -1,5 +1,8 @@
 ﻿
 
+
+// Ignore Spelling: App
+
 using SAD.App.Warehouse;
 
 namespace SAD.App.Services

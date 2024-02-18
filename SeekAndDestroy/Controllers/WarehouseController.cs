@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SAD.App.Services;
 using SAD.App.Warehouse;
-using SAD.Domain.Entities;
 
 namespace SeekAndDestroy.Controllers
 {
-    
+
     public class WarehouseController : Controller
     {
         private readonly IWarehouseService _warehouseService;
@@ -30,10 +29,11 @@ namespace SeekAndDestroy.Controllers
             
         {
             warehouse.SEOName = warehouse.PalletRackName.ToLower().Replace(" ", "_") + "_" + warehouse.PalletRackPosition.ToLower().Replace(" ", "_");
-         /*       if (!ModelState.IsValid)
-            {
-                return View(warehouse);
-            }*/
+
+              if (!ModelState.IsValid)
+                {
+                    return View(warehouse);
+                }
             await _warehouseService.Create(warehouse);
             return RedirectToAction(nameof(IndexWarehouse)); 
         }
