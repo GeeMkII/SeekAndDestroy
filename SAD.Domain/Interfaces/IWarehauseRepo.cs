@@ -8,6 +8,6 @@ namespace SAD.Domain.Interfaces
         Task<Entities.Warehouse?> GetBySeo(string seo);
         Task<IEnumerable<Entities.Warehouse>> GetAll();
         Task Commit();
-       // Task Dellete(string seo);
+       Task Delete(string seo);
     }
 }

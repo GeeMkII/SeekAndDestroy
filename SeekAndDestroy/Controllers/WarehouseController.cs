@@ -37,6 +37,14 @@ namespace SeekAndDestroy.Controllers
             return View(dto);
         }
 
+        [Route("WareHouse/{SEOName}/Delete")]
+        public async Task<IActionResult> Delete(string seoName)
+        {
+
+            var dto = await _mediator.Send(new GetWarHouseBySeoQuery(seoName));
+            return View(IndexWarehouse);
+        }
+
         [Route("WareHouse/{SEOName}/Edit")]
         public async Task<IActionResult> Edit(string seoName)
         {

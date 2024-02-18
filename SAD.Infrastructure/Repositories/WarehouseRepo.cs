@@ -20,6 +20,11 @@ namespace SAD.Infrastructure.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task Delete(string warehouse)
+        {
+            _dbContext.Remove(warehouse);         
+        }
+
         public Task Commit()
             => _dbContext.SaveChangesAsync();
 
