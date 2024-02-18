@@ -4,24 +4,24 @@ using FluentValidation;
 using FluentValidation.Internal;
 using SAD.Domain.Interfaces;
 
-namespace SAD.App.Warehouse
+namespace SAD.App.Warehouse.Commands.CreateWareHouse
 {//AbstractVal - parametr generyczny przyjmuje typ do walidacji
-    public class WarehouseDtoVaildator : AbstractValidator<WarehouseDto>
+    public class CreateWarehouseCmdVaildator : AbstractValidator<CreateWareHouseCmd>
     {
-        
-        public WarehouseDtoVaildator(IWarehouseRepo repo)
+
+        public CreateWarehouseCmdVaildator(IWarehouseRepo repo)
         {
-            RuleFor(c => c.SEOName)   
+            RuleFor(c => c.SEOName)
                 .Custom((value, context) =>
                     {
                         var wareHouseInBase = repo.GetBySeo(value).Result;
                         if (wareHouseInBase != null)
-                        {                        
-                            context.RootContextData["SEONameInvalid"] = true;                            
+                        {
+                            context.RootContextData["SEONameInvalid"] = true;
                         }
                     }
                 );
-                
+
             RuleFor(c => c.PalletRackName)
              .NotEmpty()
              .MinimumLength(3)
@@ -33,20 +33,20 @@ namespace SAD.App.Warehouse
                 .MinimumLength(2)
                 .MaximumLength(3)
                 .WithErrorCode("Between 2 - 3 char")
-                .Custom( (value, context) =>
+                .Custom((value, context) =>
                 {
                     if (context.RootContextData.TryGetValue("SEONameInvalid", out var seoNameInvalid) && (bool)seoNameInvalid)
                     {
-                        context.AddFailure($"{value} existing. Place not empty");   
+                        context.AddFailure($"{value} existing. Place not empty");
                     }
-                    
-                } )
-                
+
+                })
+
             ;
             RuleFor(c => c.Hardness)
                 .NotEmpty()
                 .MinimumLength(4).WithMessage("xxx")
-                .MaximumLength(5)  
+                .MaximumLength(5)
                 .WithErrorCode("S355, HB450, HB500, HB550")
             ;
             RuleFor(c => c.Width)

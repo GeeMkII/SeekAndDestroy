@@ -1,13 +1,12 @@
 ﻿
 
 // Ignore Spelling: App
-
+using MediatR;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using SAD.App.Mappings;
-using SAD.App.Services;
-using SAD.App.Warehouse;
+using SAD.App.Warehouse.Commands.CreateWareHouse;
 
 namespace SAD.App.Extensions
 {//Dodanie zależnosci
@@ -15,11 +14,11 @@ namespace SAD.App.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IWarehouseService, WarehouseService>();
+            services.AddMediatR(typeof(CreateWareHouseCmd));
 
             services.AddAutoMapper(typeof(WarehouseMappingProfile));
 
-            services.AddValidatorsFromAssemblyContaining<WarehouseDtoVaildator>()
+            services.AddValidatorsFromAssemblyContaining<CreateWarehouseCmdVaildator>()
                 .AddFluentValidationAutoValidation()
                 .AddFluentValidationClientsideAdapters();
         }

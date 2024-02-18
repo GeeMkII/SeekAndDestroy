@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SAD.App.Services;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using SAD.App.Warehouse;
 
 namespace SeekAndDestroy.Controllers
@@ -7,15 +7,15 @@ namespace SeekAndDestroy.Controllers
 
     public class WarehouseController : Controller
     {
-        private readonly IWarehouseService _warehouseService;
+        private IMediator _mediator;
 
-        public WarehouseController(IWarehouseService warehouseService)
+        public WarehouseController(IMediator mediator)
         {
-            _warehouseService = warehouseService;
+            _mediator = mediator;
         }
         public async Task<IActionResult> IndexWarehouse()
         {
-            var warehouses = await _warehouseService.GetAll();
+            var warehouses = await _mediator.Send(new GetAllWareHouseQuery());
             return View(warehouses);
         }
         public IActionResult Create()
